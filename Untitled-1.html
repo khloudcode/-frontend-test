@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Front-End Example</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(to bottom right, #74ebd5, #acb6e5);
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      background-color: #ff7e5f;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .icon {
+      font-size: 50px;
+      margin: 20px;
+      color: white;
+      animation: bounce 1.5s infinite;
+    }
+
+    /* Keyframes for Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to My Interactive Page</h1>
+  <div>
+    <span class="icon">✨</span>
+    <span class="icon">🌟</span>
+    <span class="icon">💡</span>
+  </div>
+  <button onclick="changeBackgroundColor()">Click Me!</button>
+
+  <script>
+    function changeBackgroundColor() {
+      const colors = ['#FFDDC1', '#FFC1E3', '#C1FFD7', '#D1C1FF', '#FFFAC1'];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      document.body.style.backgroundColor = randomColor;
+
+      // Add a little animation
+      const icons = document.querySelectorAll('.icon');
+      icons.forEach(icon => {
+        icon.style.transform = 'rotate(360deg)';
+        setTimeout(() => {
+          icon.style.transform = '';
+        }, 500);
+      });
+    }
+  </script>
+</body>
+</html>
